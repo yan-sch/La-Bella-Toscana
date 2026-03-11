@@ -80,6 +80,19 @@
         .team-member { flex: 1; text-align: center; }
         .team-img { width: 100%; height: 250px; object-fit: cover; border: 4px solid white; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 10px; background-color: var(--okka-akzent); }
         
+        /* --- NEU: KATEGORIE-ÜBERSCHRIFTEN --- */
+        .menu-category-title {
+            text-align: center;
+            font-size: 24px;
+            color: var(--text-farbe);
+            margin: 40px 0 20px 0;
+            border-bottom: 2px solid var(--pastell-rot);
+            padding-bottom: 10px;
+        }
+        .menu-category-title:first-child {
+            margin-top: 0; /* Die erste Überschrift braucht keinen großen Abstand nach oben */
+        }
+
         .menu-item { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 15px; border-bottom: 1px dashed var(--rahmen-farbe); padding-bottom: 15px; }
         .menu-item:last-child { border-bottom: none; }
         .menu-item-details { width: 80%; }
@@ -229,59 +242,79 @@
         function startAutoSlide() { slideInterval = setInterval(() => changeSlide(1), 5000); }
         function resetAutoSlide() { clearInterval(slideInterval); startAutoSlide(); }
 
-        // 3. LOGIK FÜR DIE LOKALE SPEISEKARTE (Über die JS Variable)
+        // 3. LOGIK FÜR DIE LOKALE SPEISEKARTE (Inklusive Kategorien)
         function loadMenu() {
             try {
-                // Prüfen, ob die Datei speisekarte.js erfolgreich geladen wurde
                 if (typeof speisekartenDaten === 'undefined') {
                     throw new Error("speisekartenDaten ist nicht definiert.");
                 }
 
-                // Wir nehmen die Daten direkt aus der Variable
                 const rows = speisekartenDaten.split('\n');
                 const menuContainer = document.getElementById('menu-container');
                 menuContainer.innerHTML = ''; 
 
                 let gerichteHinzugefuegt = 0; 
+                
+                // Wir speichern die Gerichte sortiert in einem Objekt ab
+                const menuKategorien = {};
 
-                // Wir starten bei 1, um die Überschriften zu überspringen
+                // Zeilen durchlaufen (ab Zeile 1, um Überschriften zu ignorieren)
                 for (let i = 1; i < rows.length; i++) {
                     const row = rows[i].trim();
                     if (!row) continue; 
                     
                     let cols = row.split('\t'); 
-                    if (cols.length < 3) { cols = row.split(','); }
+                    if (cols.length < 4) { cols = row.split(','); } // Fallback
                     
-                    if (cols.length >= 3) {
-                        const titel = cols[0];
-                        const beschreibung = cols[1];
-                        const preis = cols[2];
+                    // Wir brauchen jetzt 4 Spalten! (Kategorie, Titel, Beschreibung, Preis)
+                    if (cols.length >= 4) {
+                        const kategorie = cols[0].trim();
+                        const titel = cols[1].trim();
+                        const beschreibung = cols[2].trim();
+                        const preis = cols[3].trim();
 
-                        const menuItemHTML = `
-                            <div class="menu-item">
-                                <div class="menu-item-details">
-                                    <div class="menu-item-title">${titel}</div>
-                                    <div class="menu-item-desc">${beschreibung}</div>
-                                </div>
-                                <div class="menu-item-price">${preis}</div>
-                            </div>
-                        `;
-                        menuContainer.innerHTML += menuItemHTML;
+                        // Wenn es die Kategorie noch nicht gibt, erstelle eine leere Liste dafür
+                        if (!menuKategorien[kategorie]) {
+                            menuKategorien[kategorie] = [];
+                        }
+
+                        // Gericht in die Liste packen
+                        menuKategorien[kategorie].push({ titel, beschreibung, preis });
                         gerichteHinzugefuegt++;
                     }
                 }
 
+                // Jetzt bauen wir das HTML anhand unserer sortierten Kategorien
+                for (const kategorie in menuKategorien) {
+                    
+                    // 1. Überschrift für die Kategorie hinzufügen
+                    menuContainer.innerHTML += `<h3 class="menu-category-title">${kategorie}</h3>`;
+                    
+                    // 2. Alle Gerichte aus dieser Kategorie hinzufügen
+                    menuKategorien[kategorie].forEach(gericht => {
+                        const menuItemHTML = `
+                            <div class="menu-item">
+                                <div class="menu-item-details">
+                                    <div class="menu-item-title">${gericht.titel}</div>
+                                    <div class="menu-item-desc">${gericht.beschreibung}</div>
+                                </div>
+                                <div class="menu-item-price">${gericht.preis}</div>
+                            </div>
+                        `;
+                        menuContainer.innerHTML += menuItemHTML;
+                    });
+                }
+
                 if (gerichteHinzugefuegt === 0) {
-                    menuContainer.innerHTML = '<p style="color: #d88c7d;">Die Datei speisekarte.js wurde gefunden, aber das Format stimmt noch nicht ganz.</p>';
+                    menuContainer.innerHTML = '<p style="color: #d88c7d;">Keine Gerichte gefunden. Bitte stelle sicher, dass du 4 Spalten hast (Kategorie, Titel, Beschreibung, Preis).</p>';
                 }
 
             } catch (error) {
                 console.error("Fehler beim Laden der Speisekarte:", error);
-                document.getElementById('menu-container').innerHTML = '<p style="color: #d88c7d;">Die Speisekarte konnte nicht geladen werden. Hast du die Datei in speisekarte.js umbenannt?</p>';
+                document.getElementById('menu-container').innerHTML = '<p style="color: #d88c7d;">Die Speisekarte konnte nicht geladen werden.</p>';
             }
         }
 
-        // Sobald die HTML Seite geladen ist
         document.addEventListener("DOMContentLoaded", function() {
             showSlide(currentSlideIndex);
             startAutoSlide();
