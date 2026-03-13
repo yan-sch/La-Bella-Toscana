@@ -46,7 +46,7 @@
 
         nav button:hover, nav button.active-btn { background-color: rgba(255,255,255,0.2); border-radius: 5px; font-weight: bold; }
 
-        main { flex-grow: 1; padding: 50px 80px; overflow-y: auto; }
+        main { flex-grow: 1; padding: 50px 80px; overflow-y: auto; position: relative; }
         .page-section { display: none; animation: fadeIn 0.5s; }
         .page-section.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
@@ -80,19 +80,8 @@
         .team-member { flex: 1; text-align: center; }
         .team-img { width: 100%; height: 250px; object-fit: cover; border: 4px solid white; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 10px; background-color: var(--okka-akzent); }
         
-        /* --- NEU: KATEGORIE-ÜBERSCHRIFTEN --- */
-        .menu-category-title {
-            text-align: center;
-            font-size: 24px;
-            color: var(--text-farbe);
-            margin: 40px 0 20px 0;
-            border-bottom: 2px solid var(--pastell-rot);
-            padding-bottom: 10px;
-        }
-        .menu-category-title:first-child {
-            margin-top: 0; /* Die erste Überschrift braucht keinen großen Abstand nach oben */
-        }
-
+        .menu-category-title { text-align: center; font-size: 24px; color: var(--text-farbe); margin: 40px 0 20px 0; border-bottom: 2px solid var(--pastell-rot); padding-bottom: 10px; }
+        .menu-category-title:first-child { margin-top: 0; }
         .menu-item { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 15px; border-bottom: 1px dashed var(--rahmen-farbe); padding-bottom: 15px; }
         .menu-item:last-child { border-bottom: none; }
         .menu-item-details { width: 80%; }
@@ -105,6 +94,39 @@
         .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
         .gallery-item:hover { border-color: white; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
         .gallery-item:hover img { transform: scale(1.05); }
+
+        /* --- NEU: COOKIE BANNER & MAP PLATZHALTER --- */
+        .cookie-banner {
+            position: fixed;
+            bottom: 0; left: 0; right: 0;
+            background-color: var(--beige-hintergrund);
+            border-top: 4px solid var(--pastell-rot);
+            padding: 20px 40px;
+            display: none; /* Startet unsichtbar, JS schaltet es ein */
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.15);
+            z-index: 1000;
+        }
+
+        .cookie-text { flex-grow: 1; padding-right: 20px; font-size: 14px; }
+        .cookie-text strong { font-family: 'Lora', serif; font-size: 18px; color: var(--pastell-rot); display: block; margin-bottom: 5px; }
+        
+        .cookie-buttons { display: flex; gap: 10px; flex-shrink: 0; }
+        .cookie-btn {
+            padding: 10px 20px; border: none; border-radius: 5px; font-family: 'Open Sans', sans-serif;
+            font-weight: bold; cursor: pointer; transition: 0.3s;
+        }
+        .btn-accept { background-color: var(--pastell-rot); color: white; }
+        .btn-accept:hover { background-color: #c07769; }
+        .btn-decline { background-color: transparent; border: 1px solid var(--text-farbe); color: var(--text-farbe); }
+        .btn-decline:hover { background-color: rgba(0,0,0,0.05); }
+
+        .map-placeholder {
+            width: 100%; height: 300px; background-color: rgba(200, 158, 110, 0.3); border: 2px dashed var(--rahmen-farbe);
+            border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center;
+            text-align: center; padding: 20px; color: var(--text-farbe); margin-top: 15px;
+        }
 
         /* --- RESPONSIVE DESIGN --- */
         @media (max-width: 768px) {
@@ -119,6 +141,11 @@
             .menu-item { flex-direction: column; align-items: flex-start; }
             .menu-item-details { width: 100%; margin-bottom: 5px; }
             .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+            
+            /* Responsive Cookie Banner */
+            .cookie-banner { flex-direction: column; text-align: center; padding: 20px; gap: 15px; }
+            .cookie-text { padding-right: 0; }
+            .cookie-buttons { width: 100%; justify-content: center; }
         }
         @media (max-width: 480px) { .gallery-grid { grid-template-columns: 1fr; } }
     </style>
@@ -212,10 +239,28 @@
             <div class="info-box"><h3>So erreichen Sie uns</h3><p><strong>Telefon:</strong> 01234 / 56 78 90</p></div>
             <div class="info-box">
                 <h3>Anfahrt</h3><p>Musterstraße 12, 12345 Musterstadt</p>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2948.337583624831!2d11.328814515444053!3d43.31885067913388!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132a2cbf34bf5313%3A0x5d731212f12343e3!2sPiazza%20del%20Campo!5e0!3m2!1sde!2sde!4v1689955000000!5m2!1sde!2sde" width="100%" height="300" style="border:0; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-top: 15px;" allowfullscreen="" loading="lazy"></iframe>
+                
+                <div id="map-container">
+                    <div class="map-placeholder">
+                        <p style="margin-bottom: 15px;">Um unsere interaktive Anfahrtskarte zu sehen, benötigen wir Ihre Zustimmung zum Laden von Google Maps (setzt Cookies).</p>
+                        <button onclick="acceptCookies()" class="cookie-btn btn-accept">Karte laden</button>
+                    </div>
+                </div>
+                
             </div>
         </section>
     </main>
+
+    <div id="cookie-banner" class="cookie-banner">
+        <div class="cookie-text">
+            <strong>Wir schätzen Ihre Privatsphäre</strong>
+            Wir verwenden Cookies ausschließlich, um Ihnen die interaktive Anfahrtskarte von Google Maps anzeigen zu können. Andere Tracking-Dienste nutzen wir nicht.
+        </div>
+        <div class="cookie-buttons">
+            <button onclick="acceptCookies()" class="cookie-btn btn-accept">Akzeptieren</button>
+            <button onclick="declineCookies()" class="cookie-btn btn-decline">Ablehnen</button>
+        </div>
+    </div>
 
     <script src="speisekarte.js"></script>
 
@@ -242,55 +287,35 @@
         function startAutoSlide() { slideInterval = setInterval(() => changeSlide(1), 5000); }
         function resetAutoSlide() { clearInterval(slideInterval); startAutoSlide(); }
 
-        // 3. LOGIK FÜR DIE LOKALE SPEISEKARTE (Inklusive Kategorien)
+        // 3. LOGIK FÜR DIE LOKALE SPEISEKARTE
         function loadMenu() {
             try {
-                if (typeof speisekartenDaten === 'undefined') {
-                    throw new Error("speisekartenDaten ist nicht definiert.");
-                }
-
+                if (typeof speisekartenDaten === 'undefined') { throw new Error("speisekartenDaten fehlt."); }
                 const rows = speisekartenDaten.split('\n');
                 const menuContainer = document.getElementById('menu-container');
                 menuContainer.innerHTML = ''; 
-
                 let gerichteHinzugefuegt = 0; 
-                
-                // Wir speichern die Gerichte sortiert in einem Objekt ab
                 const menuKategorien = {};
 
-                // Zeilen durchlaufen (ab Zeile 1, um Überschriften zu ignorieren)
                 for (let i = 1; i < rows.length; i++) {
                     const row = rows[i].trim();
                     if (!row) continue; 
-                    
                     let cols = row.split('\t'); 
-                    if (cols.length < 4) { cols = row.split(','); } // Fallback
+                    if (cols.length < 4) { cols = row.split(','); } 
                     
-                    // Wir brauchen jetzt 4 Spalten! (Kategorie, Titel, Beschreibung, Preis)
                     if (cols.length >= 4) {
                         const kategorie = cols[0].trim();
                         const titel = cols[1].trim();
                         const beschreibung = cols[2].trim();
                         const preis = cols[3].trim();
-
-                        // Wenn es die Kategorie noch nicht gibt, erstelle eine leere Liste dafür
-                        if (!menuKategorien[kategorie]) {
-                            menuKategorien[kategorie] = [];
-                        }
-
-                        // Gericht in die Liste packen
+                        if (!menuKategorien[kategorie]) { menuKategorien[kategorie] = []; }
                         menuKategorien[kategorie].push({ titel, beschreibung, preis });
                         gerichteHinzugefuegt++;
                     }
                 }
 
-                // Jetzt bauen wir das HTML anhand unserer sortierten Kategorien
                 for (const kategorie in menuKategorien) {
-                    
-                    // 1. Überschrift für die Kategorie hinzufügen
                     menuContainer.innerHTML += `<h3 class="menu-category-title">${kategorie}</h3>`;
-                    
-                    // 2. Alle Gerichte aus dieser Kategorie hinzufügen
                     menuKategorien[kategorie].forEach(gericht => {
                         const menuItemHTML = `
                             <div class="menu-item">
@@ -304,21 +329,56 @@
                         menuContainer.innerHTML += menuItemHTML;
                     });
                 }
-
-                if (gerichteHinzugefuegt === 0) {
-                    menuContainer.innerHTML = '<p style="color: #d88c7d;">Keine Gerichte gefunden. Bitte stelle sicher, dass du 4 Spalten hast (Kategorie, Titel, Beschreibung, Preis).</p>';
-                }
-
+                if (gerichteHinzugefuegt === 0) { menuContainer.innerHTML = '<p>Keine Gerichte gefunden.</p>'; }
             } catch (error) {
-                console.error("Fehler beim Laden der Speisekarte:", error);
-                document.getElementById('menu-container').innerHTML = '<p style="color: #d88c7d;">Die Speisekarte konnte nicht geladen werden.</p>';
+                console.error("Fehler:", error);
+                document.getElementById('menu-container').innerHTML = '<p>Die Speisekarte konnte nicht geladen werden.</p>';
             }
         }
 
+        // 4. NEU: COOKIE & MAPS LOGIK
+        function checkCookieConsent() {
+            // Frag das Browser-Gedächtnis ab
+            let consent = localStorage.getItem('cookieConsent_LaBellaToscana');
+            
+            if (consent === 'true') {
+                // Wenn schon zugestimmt, lade die Karte direkt (Banner bleibt unsichtbar)
+                loadGoogleMaps();
+            } else if (consent === null) {
+                // Wenn noch nicht gefragt wurde, zeige das Banner
+                document.getElementById('cookie-banner').style.display = 'flex';
+            }
+            // Bei 'false' passiert nichts. Das Banner bleibt versteckt und die Karte bleibt ein Platzhalter.
+        }
+
+        function acceptCookies() {
+            // Speichere Zustimmung im Browser
+            localStorage.setItem('cookieConsent_LaBellaToscana', 'true');
+            // Verstecke das Banner
+            document.getElementById('cookie-banner').style.display = 'none';
+            // Lade die Karte
+            loadGoogleMaps();
+        }
+
+        function declineCookies() {
+            // Speichere Ablehnung im Browser
+            localStorage.setItem('cookieConsent_LaBellaToscana', 'false');
+            // Verstecke das Banner
+            document.getElementById('cookie-banner').style.display = 'none';
+        }
+
+        function loadGoogleMaps() {
+            const mapContainer = document.getElementById('map-container');
+            // Hier injizieren wir den echten Google iFrame, der vorher durch den Platzhalter ersetzt wurde
+            mapContainer.innerHTML = '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2948.337583624831!2d11.328814515444053!3d43.31885067913388!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132a2cbf34bf5313%3A0x5d731212f12343e3!2sPiazza%20del%20Campo!5e0!3m2!1sde!2sde!4v1689955000000!5m2!1sde!2sde" width="100%" height="300" style="border:0; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-top: 15px;" allowfullscreen="" loading="lazy"></iframe>';
+        }
+
+        // Startfunktionen aufrufen
         document.addEventListener("DOMContentLoaded", function() {
             showSlide(currentSlideIndex);
             startAutoSlide();
             loadMenu(); 
+            checkCookieConsent(); // Ruft unsere neue Cookie-Logik beim Start auf
         });
 
     </script>
