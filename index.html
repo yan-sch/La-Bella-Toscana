@@ -236,9 +236,44 @@
 
         <section id="contact" class="page-section">
             <h2>Kontakt & Anfahrt</h2>
-            <div class="info-box"><h3>So erreichen Sie uns</h3><p><strong>Telefon:</strong> 01234 / 56 78 90</p></div>
+            
             <div class="info-box">
-                <h3>Anfahrt</h3><p>Musterstraße 12, 12345 Musterstadt</p>
+                <h3>So erreichen Sie uns</h3>
+                <p><strong>Telefon:</strong> 01234 / 56 78 90</p>
+                <p><strong>E-Mail:</strong> ciao@bella-toscana-muster.de</p>
+                
+                <hr style="border: 0; border-top: 1px solid var(--rahmen-farbe); margin: 20px 0;">
+                
+                <h3>Schreiben Sie uns eine Nachricht</h3>
+                <form action="https://api.web3forms.com/submit" method="POST" style="margin-top: 15px; display: flex; flex-direction: column; gap: 15px;">
+                    
+                    <input type="hidden" name="access_key" value="67304d88-4219-42e7-adbe-4714420692a2">
+                    
+                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                    <input type="hidden" name="subject" value="Neue Nachricht von der Webseite La Bella Toscana!">
+
+                    <div>
+                        <label for="name" style="font-weight: bold; font-size: 14px; color: var(--text-farbe);">Ihr Name:</label><br>
+                        <input type="text" id="name" name="name" required style="width: 100%; padding: 10px; border: 1px solid var(--rahmen-farbe); border-radius: 5px; margin-top: 5px; font-family: 'Open Sans', sans-serif;">
+                    </div>
+                    
+                    <div>
+                        <label for="email" style="font-weight: bold; font-size: 14px; color: var(--text-farbe);">Ihre E-Mail-Adresse:</label><br>
+                        <input type="email" id="email" name="email" required style="width: 100%; padding: 10px; border: 1px solid var(--rahmen-farbe); border-radius: 5px; margin-top: 5px; font-family: 'Open Sans', sans-serif;">
+                    </div>
+                    
+                    <div>
+                        <label for="message" style="font-weight: bold; font-size: 14px; color: var(--text-farbe);">Ihre Nachricht:</label><br>
+                        <textarea id="message" name="message" rows="4" required style="width: 100%; padding: 10px; border: 1px solid var(--rahmen-farbe); border-radius: 5px; margin-top: 5px; font-family: 'Open Sans', sans-serif; resize: vertical;"></textarea>
+                    </div>
+
+                    <button type="submit" class="cookie-btn btn-accept" style="width: 100%; font-size: 16px; padding: 12px;">Nachricht absenden</button>
+                </form>
+            </div>
+
+            <div class="info-box">
+                <h3>Anfahrt</h3>
+                <p>Musterstraße 12, 12345 Musterstadt</p>
                 
                 <div id="map-container">
                     <div class="map-placeholder">
@@ -246,7 +281,6 @@
                         <button onclick="acceptCookies()" class="cookie-btn btn-accept">Karte laden</button>
                     </div>
                 </div>
-                
             </div>
         </section>
     </main>
