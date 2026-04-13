@@ -4,151 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La Bella Toscana - Ristorante</title>
-    
+
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
-
-    <style>
-        /* --- CSS: DAS GRUND-DESIGN --- */
-        :root {
-            --pastell-rot: #d88c7d;
-            --beige-hintergrund: #f5f0e6;
-            --okka-akzent: #c89e6e;
-            --text-farbe: #4a3e3d;
-            --rahmen-farbe: #bfa89e;
-        }
-
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-
-        body {
-            font-family: 'Open Sans', sans-serif;
-            color: var(--text-farbe);
-            display: flex; height: 100vh; overflow: hidden; 
-            background-image: linear-gradient(rgba(245, 240, 230, 0.9), rgba(245, 240, 230, 0.9)), url('hintergrund.jpg');
-            background-size: cover; background-position: center; 
-        }
-
-        h1, h2, h3 { font-family: 'Lora', serif; color: var(--text-farbe); margin-bottom: 20px; }
-
-        nav {
-            width: 250px; min-width: 250px; flex-shrink: 0;   
-            background-color: var(--pastell-rot); padding: 40px 20px;
-            display: flex; flex-direction: column; box-shadow: 2px 0 15px rgba(0,0,0,0.2); z-index: 10;
-        }
-
-        nav h1 { color: #fff; font-size: 24px; text-align: center; margin-bottom: 40px; border-bottom: 2px solid rgba(255,255,255,0.3); padding-bottom: 10px; }
-        nav ul { list-style: none; }
-        nav li { margin-bottom: 15px; }
-
-        nav button {
-            background: none; border: none; color: white; font-family: 'Lora', serif;
-            font-size: 18px; cursor: pointer; width: 100%; text-align: left; padding: 10px; transition: 0.3s;
-        }
-
-        nav button:hover, nav button.active-btn { background-color: rgba(255,255,255,0.2); border-radius: 5px; font-weight: bold; }
-
-        main { flex-grow: 1; padding: 50px 80px; overflow-y: auto; position: relative; }
-        .page-section { display: none; animation: fadeIn 0.5s; }
-        .page-section.active { display: block; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-
-        /* --- SLIDESHOW STYLING --- */
-        .slideshow-container {
-            max-width: 600px; position: relative; margin: 0 auto 30px auto; 
-            border: 4px solid white; box-shadow: 0 4px 10px rgba(0,0,0,0.1); border-radius: 8px;
-            overflow: hidden; aspect-ratio: 16 / 9; background-color: var(--okka-akzent); 
-        }
-        .slide { display: none; width: 100%; height: 100%; }
-        .slide img { width: 100%; height: 100%; object-fit: cover; }
-        .prev, .next {
-            cursor: pointer; position: absolute; top: 50%; transform: translateY(-50%); 
-            width: auto; padding: 15px; color: white; font-weight: bold; font-size: 24px;
-            transition: 0.3s ease; user-select: none; background-color: rgba(0,0,0,0.4); text-decoration: none;
-        }
-        .next { right: 0; border-radius: 5px 0 0 5px; }
-        .prev { left: 0; border-radius: 0 5px 5px 0; }
-        .prev:hover, .next:hover { background-color: var(--pastell-rot); }
-        .fade { animation-name: fadeAnim; animation-duration: 1.5s; }
-        @keyframes fadeAnim { from {opacity: .4} to {opacity: 1} }
-
-        /* --- INHALTE STYLING --- */
-        .info-box {
-            background-color: rgba(255,255,255,0.6); padding: 20px; border: 1px solid var(--rahmen-farbe);
-            border-radius: 8px; margin-bottom: 30px; backdrop-filter: blur(5px); 
-        }
-        .impressum { margin-top: 50px; font-size: 12px; border-top: 1px solid var(--rahmen-farbe); padding-top: 20px; }
-        .team-grid { display: flex; gap: 20px; margin-top: 30px; }
-        .team-member { flex: 1; text-align: center; }
-        .team-img { width: 100%; height: 250px; object-fit: cover; border: 4px solid white; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 10px; background-color: var(--okka-akzent); }
-        
-        .menu-category-title { text-align: center; font-size: 24px; color: var(--text-farbe); margin: 40px 0 20px 0; border-bottom: 2px solid var(--pastell-rot); padding-bottom: 10px; }
-        .menu-category-title:first-child { margin-top: 0; }
-        .menu-item { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 15px; border-bottom: 1px dashed var(--rahmen-farbe); padding-bottom: 15px; }
-        .menu-item:last-child { border-bottom: none; }
-        .menu-item-details { width: 80%; }
-        .menu-item-title { font-weight: bold; font-size: 18px; color: var(--pastell-rot); margin-bottom: 5px; }
-        .menu-item-desc { font-size: 14px; font-style: italic; }
-        .menu-item-price { font-weight: bold; font-size: 18px; color: var(--okka-akzent); }
-
-        .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-        .gallery-item { aspect-ratio: 4 / 3; background-color: var(--okka-akzent); border: 2px solid var(--pastell-rot); overflow: hidden; transition: 0.3s; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
-        .gallery-item:hover { border-color: white; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
-        .gallery-item:hover img { transform: scale(1.05); }
-
-        /* --- NEU: COOKIE BANNER & MAP PLATZHALTER --- */
-        .cookie-banner {
-            position: fixed;
-            bottom: 0; left: 0; right: 0;
-            background-color: var(--beige-hintergrund);
-            border-top: 4px solid var(--pastell-rot);
-            padding: 20px 40px;
-            display: none; /* Startet unsichtbar, JS schaltet es ein */
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 -5px 20px rgba(0,0,0,0.15);
-            z-index: 1000;
-        }
-
-        .cookie-text { flex-grow: 1; padding-right: 20px; font-size: 14px; }
-        .cookie-text strong { font-family: 'Lora', serif; font-size: 18px; color: var(--pastell-rot); display: block; margin-bottom: 5px; }
-        
-        .cookie-buttons { display: flex; gap: 10px; flex-shrink: 0; }
-        .cookie-btn {
-            padding: 10px 20px; border: none; border-radius: 5px; font-family: 'Open Sans', sans-serif;
-            font-weight: bold; cursor: pointer; transition: 0.3s;
-        }
-        .btn-accept { background-color: var(--pastell-rot); color: white; }
-        .btn-accept:hover { background-color: #c07769; }
-        .btn-decline { background-color: transparent; border: 1px solid var(--text-farbe); color: var(--text-farbe); }
-        .btn-decline:hover { background-color: rgba(0,0,0,0.05); }
-
-        .map-placeholder {
-            width: 100%; height: 300px; background-color: rgba(200, 158, 110, 0.3); border: 2px dashed var(--rahmen-farbe);
-            border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center;
-            text-align: center; padding: 20px; color: var(--text-farbe); margin-top: 15px;
-        }
-
-        /* --- RESPONSIVE DESIGN --- */
-        @media (max-width: 768px) {
-            body { flex-direction: column; overflow-y: auto; height: auto; }
-            nav { width: 100%; min-width: 100%; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-            nav h1 { margin-bottom: 20px; font-size: 22px; }
-            nav ul { display: flex; flex-wrap: wrap; justify-content: center; gap: 5px; }
-            nav li { margin-bottom: 5px; }
-            nav button { text-align: center; padding: 8px 12px; font-size: 16px; width: auto; }
-            main { padding: 30px 20px; overflow-y: visible; }
-            .team-grid { flex-direction: column; }
-            .menu-item { flex-direction: column; align-items: flex-start; }
-            .menu-item-details { width: 100%; margin-bottom: 5px; }
-            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-            
-            /* Responsive Cookie Banner */
-            .cookie-banner { flex-direction: column; text-align: center; padding: 20px; gap: 15px; }
-            .cookie-text { padding-right: 0; }
-            .cookie-buttons { width: 100%; justify-content: center; }
-        }
-        @media (max-width: 480px) { .gallery-grid { grid-template-columns: 1fr; } }
-    </style>
+    <link rel="stylesheet" href="styles.css">
+</head>
 </head>
 <body>
 
@@ -199,7 +58,7 @@
 
         <section id="about" class="page-section">
             <h2>Unsere Geschichte</h2>
-            <p style="line-height: 1.6;">Alles begann im Jahr 1992...</p>
+            <p style="line-height: 1.6;">Alles begann im Jahr 1992, als unsere Nonna nach Deutschland kam...</p>
             <div class="team-grid">
                 <div class="team-member"><img src="marco.png" alt="Marco Rossi" class="team-img"><h3>Marco</h3><p>Chefkoch</p></div>
                 <div class="team-member"><img src="sofia.png" alt="Sofia Rossi" class="team-img"><h3>Sofia</h3><p>Service</p></div>
@@ -297,124 +156,19 @@
     </div>
 
     <script src="speisekarte.js"></script>
+    <script src="navigation.js"></script>
+    <script src="slideshow.js"></script>
+    <script src="menu.js"></script>
+    <script src="cookies.js"></script>
 
     <script>
-        // 1. Navigation
-        function showPage(pageId) {
-            document.querySelectorAll('.page-section').forEach(page => page.classList.remove('active'));
-            document.getElementById(pageId).classList.add('active');
-            document.querySelectorAll('nav button').forEach(btn => btn.classList.remove('active-btn'));
-            document.getElementById('btn-' + pageId).classList.add('active-btn');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        // 2. Slideshow
-        let currentSlideIndex = 1; let slideInterval; 
-        function changeSlide(n) { showSlide(currentSlideIndex += n); resetAutoSlide(); }
-        function showSlide(n) {
-            let slides = document.getElementsByClassName("slide");
-            if (n > slides.length) { currentSlideIndex = 1 }    
-            if (n < 1) { currentSlideIndex = slides.length }
-            for (let i = 0; i < slides.length; i++) { slides[i].style.display = "none"; }
-            if (slides.length > 0) { slides[currentSlideIndex - 1].style.display = "block"; }
-        }
-        function startAutoSlide() { slideInterval = setInterval(() => changeSlide(1), 5000); }
-        function resetAutoSlide() { clearInterval(slideInterval); startAutoSlide(); }
-
-        // 3. LOGIK FÜR DIE LOKALE SPEISEKARTE
-        function loadMenu() {
-            try {
-                if (typeof speisekartenDaten === 'undefined') { throw new Error("speisekartenDaten fehlt."); }
-                const rows = speisekartenDaten.split('\n');
-                const menuContainer = document.getElementById('menu-container');
-                menuContainer.innerHTML = ''; 
-                let gerichteHinzugefuegt = 0; 
-                const menuKategorien = {};
-
-                for (let i = 1; i < rows.length; i++) {
-                    const row = rows[i].trim();
-                    if (!row) continue; 
-                    let cols = row.split('\t'); 
-                    if (cols.length < 4) { cols = row.split(','); } 
-                    
-                    if (cols.length >= 4) {
-                        const kategorie = cols[0].trim();
-                        const titel = cols[1].trim();
-                        const beschreibung = cols[2].trim();
-                        const preis = cols[3].trim();
-                        if (!menuKategorien[kategorie]) { menuKategorien[kategorie] = []; }
-                        menuKategorien[kategorie].push({ titel, beschreibung, preis });
-                        gerichteHinzugefuegt++;
-                    }
-                }
-
-                for (const kategorie in menuKategorien) {
-                    menuContainer.innerHTML += `<h3 class="menu-category-title">${kategorie}</h3>`;
-                    menuKategorien[kategorie].forEach(gericht => {
-                        const menuItemHTML = `
-                            <div class="menu-item">
-                                <div class="menu-item-details">
-                                    <div class="menu-item-title">${gericht.titel}</div>
-                                    <div class="menu-item-desc">${gericht.beschreibung}</div>
-                                </div>
-                                <div class="menu-item-price">${gericht.preis}</div>
-                            </div>
-                        `;
-                        menuContainer.innerHTML += menuItemHTML;
-                    });
-                }
-                if (gerichteHinzugefuegt === 0) { menuContainer.innerHTML = '<p>Keine Gerichte gefunden.</p>'; }
-            } catch (error) {
-                console.error("Fehler:", error);
-                document.getElementById('menu-container').innerHTML = '<p>Die Speisekarte konnte nicht geladen werden.</p>';
-            }
-        }
-
-        // 4. NEU: COOKIE & MAPS LOGIK
-        function checkCookieConsent() {
-            // Frag das Browser-Gedächtnis ab
-            let consent = localStorage.getItem('cookieConsent_LaBellaToscana');
-            
-            if (consent === 'true') {
-                // Wenn schon zugestimmt, lade die Karte direkt (Banner bleibt unsichtbar)
-                loadGoogleMaps();
-            } else if (consent === null) {
-                // Wenn noch nicht gefragt wurde, zeige das Banner
-                document.getElementById('cookie-banner').style.display = 'flex';
-            }
-            // Bei 'false' passiert nichts. Das Banner bleibt versteckt und die Karte bleibt ein Platzhalter.
-        }
-
-        function acceptCookies() {
-            // Speichere Zustimmung im Browser
-            localStorage.setItem('cookieConsent_LaBellaToscana', 'true');
-            // Verstecke das Banner
-            document.getElementById('cookie-banner').style.display = 'none';
-            // Lade die Karte
-            loadGoogleMaps();
-        }
-
-        function declineCookies() {
-            // Speichere Ablehnung im Browser
-            localStorage.setItem('cookieConsent_LaBellaToscana', 'false');
-            // Verstecke das Banner
-            document.getElementById('cookie-banner').style.display = 'none';
-        }
-
-        function loadGoogleMaps() {
-            const mapContainer = document.getElementById('map-container');
-            // Hier injizieren wir den echten Google iFrame, der vorher durch den Platzhalter ersetzt wurde
-            mapContainer.innerHTML = '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2948.337583624831!2d11.328814515444053!3d43.31885067913388!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132a2cbf34bf5313%3A0x5d731212f12343e3!2sPiazza%20del%20Campo!5e0!3m2!1sde!2sde!4v1689955000000!5m2!1sde!2sde" width="100%" height="300" style="border:0; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-top: 15px;" allowfullscreen="" loading="lazy"></iframe>';
-        }
-
-        // Startfunktionen aufrufen
+        // Initialize the application when DOM is loaded
         document.addEventListener("DOMContentLoaded", function() {
             showSlide(currentSlideIndex);
             startAutoSlide();
-            loadMenu(); 
-            checkCookieConsent(); // Ruft unsere neue Cookie-Logik beim Start auf
+            loadMenu();
+            checkCookieConsent();
         });
-
     </script>
 </body>
 </html>
