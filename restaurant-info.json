@@ -1,0 +1,247 @@
+{
+  "restaurant": {
+    "id": "bella-italia-muenchen",
+    "name": "Bella Italia",
+    "tagline": "Cucina Italiana autentica – seit 1998 in München",
+    "description": "Das Bella Italia steht seit über 25 Jahren für authentische italienische Küche im Herzen Münchens. Inhaber Marco Ferretti bringt die Rezepte seiner Nonna aus der Toskana direkt auf Ihren Tisch. Frische Zutaten, hausgemachte Pasta und Holzofen-Pizza machen jeden Besuch zu einem kleinen Urlaub in Italien.",
+
+    "contact": {
+      "phone": "+49 89 4521 8800",
+      "mobile": "+49 172 9988 4411",
+      "email": "info@bella-italia-muenchen.de",
+      "website": "https://www.bella-italia-muenchen.de",
+      "instagram": "@bellaitalia_muc",
+      "facebook": "BellaItaliaMuenchen"
+    },
+
+    "address": {
+      "street": "Leopoldstraße 47",
+      "zip": "80802",
+      "city": "München",
+      "district": "Schwabing",
+      "country": "Deutschland",
+      "googleMapsUrl": "https://maps.google.com/?q=Leopoldstraße+47,+80802+München",
+      "lat": 48.1604,
+      "lng": 11.5856
+    },
+
+    "openingHours": {
+      "monday": {
+        "open": true,
+        "lunch": "11:30–14:30",
+        "dinner": "17:30–22:30"
+      },
+      "tuesday": {
+        "open": true,
+        "lunch": "11:30–14:30",
+        "dinner": "17:30–22:30"
+      },
+      "wednesday": {
+        "open": false,
+        "note": "Ruhetag"
+      },
+      "thursday": {
+        "open": true,
+        "lunch": "11:30–14:30",
+        "dinner": "17:30–22:30"
+      },
+      "friday": {
+        "open": true,
+        "lunch": "11:30–14:30",
+        "dinner": "17:30–23:00"
+      },
+      "saturday": {
+        "open": true,
+        "lunch": "12:00–15:00",
+        "dinner": "17:00–23:00"
+      },
+      "sunday": {
+        "open": true,
+        "lunch": "12:00–15:00",
+        "dinner": "17:00–22:00"
+      }
+    },
+
+    "specialHours": [
+      {
+        "date": "2026-12-24",
+        "name": "Heiligabend",
+        "open": true,
+        "hours": "17:00–21:00",
+        "note": "Nur Abendservice, Reservierung erforderlich"
+      },
+      {
+        "date": "2026-12-25",
+        "name": "Weihnachtstag",
+        "open": false,
+        "note": "Geschlossen – Frohe Weihnachten!"
+      },
+      {
+        "date": "2026-12-31",
+        "name": "Silvester",
+        "open": true,
+        "hours": "18:00–02:00",
+        "note": "Silvester-Menü, Reservierung erforderlich"
+      },
+      {
+        "date": "2026-01-01",
+        "name": "Neujahr",
+        "open": false,
+        "note": "Geschlossen"
+      }
+    ],
+
+    "directions": {
+      "public": {
+        "ubahn": "U3/U6 – Haltestelle Münchener Freiheit (3 Gehminuten)",
+        "tram": "Tram 23/27 – Haltestelle Leopoldstraße/Martiusstraße (direkt vor dem Restaurant)",
+        "bus": "Bus 54 – Haltestelle Schwabing Nord"
+      },
+      "car": {
+        "parking": "Tiefgarage Leopoldstraße (100m entfernt), Parkhaus Münchener Freiheit (200m entfernt)",
+        "note": "Begrenzte Parkplätze auf der Straße (kostenpflichtig, max. 2h), Blaue Zone ab 9 Uhr",
+        "hint": "Wir empfehlen die Anreise mit dem ÖPNV – das Restaurant liegt im Münchener Altstadtring."
+      },
+      "bike": "Fahrradständer direkt vor dem Restaurant vorhanden. MVG Leihrad-Station 50m entfernt."
+    },
+
+    "features": {
+      "delivery": {
+        "available": true,
+        "minOrderValue": 20.00,
+        "deliveryFee": 2.90,
+        "freeDeliveryFrom": 40.00,
+        "deliveryRadius": "3 km",
+        "deliveryTime": "30–45 Minuten",
+        "deliveryZones": [
+          "Schwabing", "Maxvorstadt", "Au", "Haidhausen", "Bogenhausen"
+        ],
+        "deliveryHours": {
+          "monday": "11:30–14:00, 17:30–21:30",
+          "tuesday": "11:30–14:00, 17:30–21:30",
+          "wednesday": "Kein Lieferdienst (Ruhetag)",
+          "thursday": "11:30–14:00, 17:30–21:30",
+          "friday": "11:30–14:00, 17:30–22:00",
+          "saturday": "12:00–14:30, 17:00–22:00",
+          "sunday": "12:00–14:30, 17:00–21:30"
+        }
+      },
+      "takeaway": {
+        "available": true,
+        "note": "Alle Gerichte auch zum Mitnehmen erhältlich. Bitte 15 Minuten vorbestellen."
+      },
+      "reservation": {
+        "available": true,
+        "maxGroupSize": 20,
+        "minNotice": "Mindestens 2 Stunden im Voraus",
+        "phone": "+49 89 4521 8800",
+        "email": "reservierung@bella-italia-muenchen.de",
+        "note": "Für Gruppen ab 8 Personen empfehlen wir eine Reservierung mindestens 24h im Voraus."
+      },
+      "wheelchairAccessible": true,
+      "wifi": true,
+      "wifiPassword": "BellaItalia2024",
+      "outdoorSeating": true,
+      "outdoorSeatingNote": "Biergarten/Terrasse geöffnet von Mai bis Oktober bei gutem Wetter",
+      "privateEvents": true,
+      "privateEventsNote": "Das Restaurant kann für Privatveranstaltungen (ab 30 Personen) komplett gemietet werden. Anfragen an events@bella-italia-muenchen.de.",
+      "kidsFriendly": true,
+      "kidsMenu": true,
+      "petsAllowed": true,
+      "petsNote": "Hunde willkommen auf der Terrasse"
+    },
+
+    "payment": {
+      "methods": ["Bar", "EC-Karte", "Visa", "Mastercard", "Apple Pay", "Google Pay"],
+      "note": "Keine American Express. Bei Lieferung: Zahlung bei Bestellung per Karte oder bar bei Lieferung."
+    },
+
+    "owner": {
+      "name": "Marco Ferretti",
+      "origin": "Florenz, Toskana, Italien",
+      "yearOpened": 1998,
+      "bio": "Marco Ferretti kam 1995 nach München und eröffnete 1998 das Bella Italia. Nach seiner Ausbildung im renommierten Ristorante La Giostra in Florenz brachte er die Kochkünste seiner Familie nach Bayern. Heute kocht er gemeinsam mit seinem Sohn Luca, der sein Studium an der Münchener Hotelfachschule abgeschlossen hat.",
+      "philosophy": "Bei uns gibt es keine Kompromisse bei der Qualität. Wir verwenden ausschließlich frische Zutaten – unsere Pasta wird täglich hausgemacht, der Teig für die Pizza reift 48 Stunden. Was wir nicht selbst herstellen, kaufen wir von ausgesuchten regionalen und italienischen Produzenten."
+    },
+
+    "team": {
+      "chefs": ["Marco Ferretti (Küchenchef)", "Luca Ferretti (Sous Chef)", "Sofia Mancini (Patissière)"],
+      "serviceLeader": "Anna Müller"
+    },
+
+    "awards": [
+      {
+        "year": 2024,
+        "award": "Bib Gourmand",
+        "organization": "Michelin Guide München"
+      },
+      {
+        "year": 2023,
+        "award": "Bestes Italienisches Restaurant München",
+        "organization": "Münchener Gastro Award"
+      },
+      {
+        "year": 2022,
+        "award": "Top-Arbeitgeber Gastronomie Bayern",
+        "organization": "DEHOGA Bayern"
+      }
+    ],
+
+    "suppliers": {
+      "note": "Wir legen großen Wert auf die Herkunft unserer Zutaten.",
+      "list": [
+        "Tomaten und Olivenöl: Direktimport von der Tenuta Ferretti, Toskana",
+        "Fleisch: Metzgerei Huber, München-Schwabing",
+        "Fisch: Tageslieferung vom Großmarkt München",
+        "Käse: Käserei Gschwendner, Miesbach",
+        "Weine: Weinhandlung Vino Italiano, München"
+      ]
+    },
+
+    "faq": [
+      {
+        "question": "Habt ihr Parkplätze?",
+        "answer": "Direkt vor dem Restaurant gibt es begrenzte Parkplätze auf der Straße (kostenpflichtig, max. 2h). Wir empfehlen die Tiefgarage Leopoldstraße (100m) oder die Anreise per U-Bahn (U3/U6, Münchener Freiheit, 3 Gehminuten)."
+      },
+      {
+        "question": "Kann ich mit Hund kommen?",
+        "answer": "Ja! Hunde sind herzlich willkommen auf unserer Terrasse. Im Innenbereich leider nicht gestattet."
+      },
+      {
+        "question": "Bietet ihr auch vegane Gerichte an?",
+        "answer": "Ja, wir haben eine eigene Kategorie 'Vegetarisch & Vegan' sowie mehrere vegane Optionen bei Pizza und Pasta. Unser Serviceteam hilft gerne bei der Auswahl."
+      },
+      {
+        "question": "Wie läuft die Lieferung ab?",
+        "answer": "Bestellungen können telefonisch, per E-Mail oder über unseren Chatbot aufgegeben werden. Mindestbestellwert 20 €, Liefergebühr 2,90 € (ab 40 € kostenlos). Lieferzeit ca. 30–45 Minuten innerhalb von 3 km."
+      },
+      {
+        "question": "Kann ich das Restaurant für eine Privatfeier mieten?",
+        "answer": "Ja! Für Gruppen ab 30 Personen kann das Restaurant vollständig gemietet werden. Anfragen bitte an events@bella-italia-muenchen.de oder telefonisch."
+      },
+      {
+        "question": "Gibt es ein Mittagsangebot?",
+        "answer": "Ja! Montag bis Freitag bieten wir von 11:30 bis 14:30 Uhr ein Mittagsmenü an: Zwei Gänge für 14,90 € oder drei Gänge für 18,90 €. Das aktuelle Angebot hängt an der Tafel oder kann erfragt werden."
+      },
+      {
+        "question": "Nehmt ihr auch spontane Gäste ohne Reservierung?",
+        "answer": "Gerne! Wir halten immer einige Tische frei. Am Wochenende und an Feiertagen empfehlen wir jedoch eine Reservierung, um sicher einen Platz zu bekommen."
+      }
+    ],
+
+    "widget": {
+      "primaryColor": "#c0392b",
+      "secondaryColor": "#f5f0e8",
+      "greeting": "Ciao! 👋 Ich bin Mario, euer digitaler Assistent im Bella Italia. Ich helfe euch gerne bei der Speisekarte, Öffnungszeiten oder einer Bestellung!",
+      "quickReplies": [
+        "Speisekarte anzeigen",
+        "Jetzt bestellen",
+        "Tisch reservieren",
+        "Öffnungszeiten"
+      ],
+      "position": "bottom-right",
+      "language": "auto",
+      "botName": "Mario"
+    }
+  }
+}

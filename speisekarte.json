@@ -1,0 +1,477 @@
+{
+  "menu": {
+    "version": "1.0",
+    "currency": "EUR",
+    "lastUpdated": "2026-04-15",
+    "categories": [
+      {
+        "id": "vorspeisen",
+        "name": "Vorspeisen",
+        "description": "Kleine Köstlichkeiten zum Einstieg"
+      },
+      {
+        "id": "suppen",
+        "name": "Suppen",
+        "description": "Hausgemachte Suppen täglich frisch zubereitet"
+      },
+      {
+        "id": "salate",
+        "name": "Salate",
+        "description": "Frische Salate aus regionalen Zutaten"
+      },
+      {
+        "id": "pasta",
+        "name": "Pasta",
+        "description": "Hausgemachte Pasta nach original italienischen Rezepten"
+      },
+      {
+        "id": "pizza",
+        "name": "Pizza",
+        "description": "Im Holzofen gebacken, Teig 48h gereift"
+      },
+      {
+        "id": "fleisch",
+        "name": "Fleischgerichte",
+        "description": "Regionales Fleisch vom Metzger des Vertrauens"
+      },
+      {
+        "id": "fisch",
+        "name": "Fischgerichte",
+        "description": "Täglich frischer Fisch vom Markt"
+      },
+      {
+        "id": "vegetarisch",
+        "name": "Vegetarisch & Vegan",
+        "description": "Saisonale Gerichte ohne Fleisch und Fisch"
+      },
+      {
+        "id": "desserts",
+        "name": "Desserts",
+        "description": "Hausgemachte Süßspeisen"
+      },
+      {
+        "id": "getraenke",
+        "name": "Getränke",
+        "description": "Erfrischungen, Heißgetränke und Weine"
+      }
+    ],
+    "items": [
+      {
+        "id": "v001",
+        "categoryId": "vorspeisen",
+        "name": "Bruschetta al Pomodoro",
+        "description": "Geröstetes Ciabatta mit frischen Tomaten, Knoblauch, Basilikum und Olivenöl",
+        "price": 7.90,
+        "tags": ["vegetarisch", "vegan"],
+        "allergens": ["gluten"],
+        "available": true
+      },
+      {
+        "id": "v002",
+        "categoryId": "vorspeisen",
+        "name": "Burrata con Prosciutto",
+        "description": "Cremige Burrata mit Parmaschinken, Kirschtomaten und Rucola",
+        "price": 13.90,
+        "tags": [],
+        "allergens": ["milch"],
+        "available": true
+      },
+      {
+        "id": "v003",
+        "categoryId": "vorspeisen",
+        "name": "Carpaccio di Manzo",
+        "description": "Hauchdünnes Rinderfilet mit Parmesan, Kapern, Rucola und Zitronenöl-Dressing",
+        "price": 14.90,
+        "tags": ["glutenfrei"],
+        "allergens": ["milch"],
+        "available": true
+      },
+      {
+        "id": "v004",
+        "categoryId": "vorspeisen",
+        "name": "Antipasto Misto",
+        "description": "Gemischte Vorspeisenplatte: Aufschnitt, Oliven, eingelegtes Gemüse, Mozzarella (für 2 Personen)",
+        "price": 18.90,
+        "tags": [],
+        "allergens": ["milch"],
+        "available": true
+      },
+      {
+        "id": "s001",
+        "categoryId": "suppen",
+        "name": "Minestrone",
+        "description": "Klassische italienische Gemüsesuppe mit saisonalem Gemüse und Parmesan",
+        "price": 7.50,
+        "tags": ["vegetarisch"],
+        "allergens": ["milch", "gluten"],
+        "available": true
+      },
+      {
+        "id": "s002",
+        "categoryId": "suppen",
+        "name": "Zuppa di Pesce",
+        "description": "Fischsuppe mit Garnelen, Muscheln und Tintenfisch in Tomatenfond",
+        "price": 11.90,
+        "tags": [],
+        "allergens": ["fisch", "krebstiere", "weichtiere"],
+        "available": true
+      },
+      {
+        "id": "sa001",
+        "categoryId": "salate",
+        "name": "Insalata Mista",
+        "description": "Gemischter Blattsalat mit Kirschtomaten, Gurke und Balsamico-Vinaigrette",
+        "price": 8.50,
+        "tags": ["vegetarisch", "vegan", "glutenfrei"],
+        "allergens": [],
+        "available": true
+      },
+      {
+        "id": "sa002",
+        "categoryId": "salate",
+        "name": "Insalata Cesare",
+        "description": "Römersalat mit Caesar Dressing, Croutons, Parmesan und gegrilltem Hähnchen",
+        "price": 14.90,
+        "tags": [],
+        "allergens": ["gluten", "milch", "eier", "fisch"],
+        "available": true
+      },
+      {
+        "id": "sa003",
+        "categoryId": "salate",
+        "name": "Caprese",
+        "description": "Büffelmozzarella mit Tomaten, frischem Basilikum und Olivenöl",
+        "price": 11.90,
+        "tags": ["vegetarisch", "glutenfrei"],
+        "allergens": ["milch"],
+        "available": true
+      },
+      {
+        "id": "pa001",
+        "categoryId": "pasta",
+        "name": "Spaghetti Carbonara",
+        "description": "Hausgemachte Spaghetti mit Guanciale, Pecorino, Eigelb und schwarzem Pfeffer",
+        "price": 15.90,
+        "tags": [],
+        "allergens": ["gluten", "eier", "milch"],
+        "available": true
+      },
+      {
+        "id": "pa002",
+        "categoryId": "pasta",
+        "name": "Pappardelle al Ragù",
+        "description": "Breite Bandnudeln mit langsamgegarter Fleischsauce aus Rind und Schwein",
+        "price": 16.90,
+        "tags": [],
+        "allergens": ["gluten", "eier"],
+        "available": true
+      },
+      {
+        "id": "pa003",
+        "categoryId": "pasta",
+        "name": "Tagliatelle ai Funghi Porcini",
+        "description": "Hausgemachte Tagliatelle mit Steinpilzen, Thymian, Knoblauch und Sahnesauce",
+        "price": 17.90,
+        "tags": ["vegetarisch"],
+        "allergens": ["gluten", "eier", "milch"],
+        "available": true
+      },
+      {
+        "id": "pa004",
+        "categoryId": "pasta",
+        "name": "Linguine alle Vongole",
+        "description": "Linguine mit frischen Venusmuscheln, Weißwein, Knoblauch, Petersilie und Olivenöl",
+        "price": 19.90,
+        "tags": [],
+        "allergens": ["gluten", "eier", "weichtiere"],
+        "available": true
+      },
+      {
+        "id": "pa005",
+        "categoryId": "pasta",
+        "name": "Gnocchi al Pomodoro",
+        "description": "Hausgemachte Kartoffelgnocchi mit frischer Tomatensauce und Basilikum",
+        "price": 13.90,
+        "tags": ["vegetarisch", "vegan"],
+        "allergens": ["gluten"],
+        "available": true
+      },
+      {
+        "id": "pi001",
+        "categoryId": "pizza",
+        "name": "Pizza Margherita",
+        "description": "San-Marzano-Tomaten, Fior di Latte Mozzarella, frisches Basilikum, Olivenöl",
+        "price": 12.90,
+        "tags": ["vegetarisch"],
+        "allergens": ["gluten", "milch"],
+        "available": true,
+        "sizes": {
+          "standard": 12.90,
+          "large": 15.90
+        }
+      },
+      {
+        "id": "pi002",
+        "categoryId": "pizza",
+        "name": "Pizza Diavola",
+        "description": "Tomatensauce, Mozzarella, scharfe Salamischeiben, Chili, Kapern",
+        "price": 14.90,
+        "tags": ["scharf"],
+        "allergens": ["gluten", "milch"],
+        "available": true,
+        "sizes": {
+          "standard": 14.90,
+          "large": 17.90
+        }
+      },
+      {
+        "id": "pi003",
+        "categoryId": "pizza",
+        "name": "Pizza Quattro Stagioni",
+        "description": "Vier Jahreszeiten: Champignons, Artischocken, Schinken, Oliven und Mozzarella",
+        "price": 15.90,
+        "tags": [],
+        "allergens": ["gluten", "milch"],
+        "available": true
+      },
+      {
+        "id": "pi004",
+        "categoryId": "pizza",
+        "name": "Pizza Prosciutto e Rucola",
+        "description": "Mozzarella, Parmaschinken, frischer Rucola, Kirschtomaten, Parmesan",
+        "price": 16.90,
+        "tags": [],
+        "allergens": ["gluten", "milch"],
+        "available": true
+      },
+      {
+        "id": "pi005",
+        "categoryId": "pizza",
+        "name": "Pizza Vegana",
+        "description": "Tomatensauce, gegrilltes Gemüse (Zucchini, Paprika, Aubergine), Oliven, Rucola – ohne Käse",
+        "price": 13.90,
+        "tags": ["vegetarisch", "vegan"],
+        "allergens": ["gluten"],
+        "available": true
+      },
+      {
+        "id": "fl001",
+        "categoryId": "fleisch",
+        "name": "Tagliata di Manzo",
+        "description": "Gegrilltes Roastbeef (250g), aufgeschnitten mit Rucola, Parmesan und Balsamicoreduktion",
+        "price": 28.90,
+        "tags": ["glutenfrei"],
+        "allergens": ["milch"],
+        "available": true
+      },
+      {
+        "id": "fl002",
+        "categoryId": "fleisch",
+        "name": "Saltimbocca alla Romana",
+        "description": "Kalbsschnitzel mit Salbei und Parmaschinken, in Weißwein-Butter-Sauce, mit Rosmarinkartoffeln",
+        "price": 24.90,
+        "tags": [],
+        "allergens": ["gluten", "milch"],
+        "available": true
+      },
+      {
+        "id": "fl003",
+        "categoryId": "fleisch",
+        "name": "Pollo alla Griglia",
+        "description": "Gegrillte Hähnchenbrust (200g) mit Zitronenmarinade, Rucola-Salat und Grillgemüse",
+        "price": 19.90,
+        "tags": ["glutenfrei"],
+        "allergens": [],
+        "available": true
+      },
+      {
+        "id": "fi001",
+        "categoryId": "fisch",
+        "name": "Branzino al Forno",
+        "description": "Ofengebackener Wolfsbarsch (400g) mit Kapern, Oliven, Kirschtomaten und Kräuterölkartoffeln",
+        "price": 27.90,
+        "tags": ["glutenfrei"],
+        "allergens": ["fisch"],
+        "available": true
+      },
+      {
+        "id": "fi002",
+        "categoryId": "fisch",
+        "name": "Gamberoni alla Griglia",
+        "description": "Gegrillte Riesengarnelen (6 Stück) mit Knoblauch-Chili-Olivenöl und Ciabatta",
+        "price": 24.90,
+        "tags": [],
+        "allergens": ["krebstiere", "gluten"],
+        "available": false,
+        "unavailableNote": "Heute leider nicht verfügbar"
+      },
+      {
+        "id": "veg001",
+        "categoryId": "vegetarisch",
+        "name": "Risotto ai Funghi",
+        "description": "Cremiges Steinpilzrisotto mit Parmesan, Thymian und Trüffelöl",
+        "price": 16.90,
+        "tags": ["vegetarisch", "glutenfrei"],
+        "allergens": ["milch"],
+        "available": true
+      },
+      {
+        "id": "veg002",
+        "categoryId": "vegetarisch",
+        "name": "Melanzane alla Parmigiana",
+        "description": "Überbackene Auberginen mit Tomatensauce, Basilikum und Mozzarella",
+        "price": 14.90,
+        "tags": ["vegetarisch"],
+        "allergens": ["milch"],
+        "available": true
+      },
+      {
+        "id": "veg003",
+        "categoryId": "vegetarisch",
+        "name": "Buddha Bowl Italiana",
+        "description": "Quinoa, gegrilltes Gemüse, Kichererbsen, Avocado, Hummus und Zitronen-Tahini-Dressing",
+        "price": 15.90,
+        "tags": ["vegetarisch", "vegan", "glutenfrei"],
+        "allergens": ["sesam"],
+        "available": true
+      },
+      {
+        "id": "d001",
+        "categoryId": "desserts",
+        "name": "Tiramisù della Casa",
+        "description": "Klassisches Tiramisù nach Hausrezept mit Savoiardi, Mascarpone und Espresso",
+        "price": 7.90,
+        "tags": ["vegetarisch"],
+        "allergens": ["gluten", "eier", "milch"],
+        "available": true
+      },
+      {
+        "id": "d002",
+        "categoryId": "desserts",
+        "name": "Panna Cotta",
+        "description": "Vanille-Panna-Cotta mit frischen Waldbeeren und Beerencouli",
+        "price": 6.90,
+        "tags": ["vegetarisch", "glutenfrei"],
+        "allergens": ["milch"],
+        "available": true
+      },
+      {
+        "id": "d003",
+        "categoryId": "desserts",
+        "name": "Gelato Artigianale",
+        "description": "3 Kugeln hausgemachtes Eis (Wahl aus: Vanille, Schokolade, Pistazie, Erdbeer, Zitrone)",
+        "price": 5.90,
+        "tags": ["vegetarisch"],
+        "allergens": ["milch", "eier", "nüsse"],
+        "available": true
+      },
+      {
+        "id": "d004",
+        "categoryId": "desserts",
+        "name": "Cannoli Siciliani",
+        "description": "Knusprige Teigröllchen gefüllt mit gesüßtem Ricotta und Schokostückchen",
+        "price": 6.50,
+        "tags": ["vegetarisch"],
+        "allergens": ["gluten", "milch", "eier"],
+        "available": true
+      },
+      {
+        "id": "g001",
+        "categoryId": "getraenke",
+        "name": "Wasser (still)",
+        "description": "San Pellegrino still, 0,75l",
+        "price": 4.50,
+        "tags": ["vegan", "glutenfrei"],
+        "allergens": [],
+        "available": true
+      },
+      {
+        "id": "g002",
+        "categoryId": "getraenke",
+        "name": "Wasser (sprudelnd)",
+        "description": "San Pellegrino frizzante, 0,75l",
+        "price": 4.50,
+        "tags": ["vegan", "glutenfrei"],
+        "allergens": [],
+        "available": true
+      },
+      {
+        "id": "g003",
+        "categoryId": "getraenke",
+        "name": "Softdrinks",
+        "description": "Coca-Cola, Cola Zero, Fanta, Sprite oder Limonata (0,4l)",
+        "price": 3.90,
+        "tags": ["vegan"],
+        "allergens": [],
+        "available": true
+      },
+      {
+        "id": "g004",
+        "categoryId": "getraenke",
+        "name": "Espresso",
+        "description": "Illy Espresso, doppelt oder einfach",
+        "price": 2.80,
+        "tags": ["vegan", "glutenfrei"],
+        "allergens": [],
+        "available": true
+      },
+      {
+        "id": "g005",
+        "categoryId": "getraenke",
+        "name": "Cappuccino",
+        "description": "Espresso mit aufgeschäumter Milch",
+        "price": 3.90,
+        "tags": ["vegetarisch"],
+        "allergens": ["milch"],
+        "available": true
+      },
+      {
+        "id": "g006",
+        "categoryId": "getraenke",
+        "name": "Hausrotwein",
+        "description": "Chianti Classico DOC, Glas (0,2l)",
+        "price": 6.50,
+        "tags": ["vegan", "glutenfrei"],
+        "allergens": ["sulfite"],
+        "available": true
+      },
+      {
+        "id": "g007",
+        "categoryId": "getraenke",
+        "name": "Hausweiswein",
+        "description": "Pinot Grigio, Glas (0,2l)",
+        "price": 6.50,
+        "tags": ["vegan", "glutenfrei"],
+        "allergens": ["sulfite"],
+        "available": true
+      },
+      {
+        "id": "g008",
+        "categoryId": "getraenke",
+        "name": "Aperol Spritz",
+        "description": "Aperol, Prosecco, Soda, Orange",
+        "price": 8.90,
+        "tags": [],
+        "allergens": ["sulfite"],
+        "available": true
+      },
+      {
+        "id": "g009",
+        "categoryId": "getraenke",
+        "name": "Prosecco",
+        "description": "Glas (0,1l), Valdobbiadene DOCG",
+        "price": 6.90,
+        "tags": ["vegan"],
+        "allergens": ["sulfite"],
+        "available": true
+      }
+    ],
+    "tagLabels": {
+      "vegetarisch": "🌿 Vegetarisch",
+      "vegan": "🌱 Vegan",
+      "glutenfrei": "🌾 Glutenfrei",
+      "scharf": "🌶️ Scharf"
+    },
+    "allergenInfo": "Vollständige Allergeninformationen auf Anfrage beim Personal erhältlich."
+  }
+}

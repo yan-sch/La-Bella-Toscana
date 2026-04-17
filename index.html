@@ -162,7 +162,6 @@
     <script src="cookies.js"></script>
 
     <script>
-        // Initialize the application when DOM is loaded
         document.addEventListener("DOMContentLoaded", function() {
             showSlide(currentSlideIndex);
             startAutoSlide();
@@ -170,5 +169,15 @@
             checkCookieConsent();
         });
     </script>
+
+    <!-- Restaurant Chatbot Widget -->
+    <script>
+        window.ChatbotConfig = {
+            restaurantDataUrl: './restaurant-info.json',
+            menuDataUrl: './speisekarte.json',
+            web3formsKey: '67304d88-4219-42e7-adbe-4714420692a2'
+        };
+    </script>
+    <script src="../chatbot-widget.js"></script>
 </body>
 </html>
